@@ -14,3 +14,4 @@ exports.addLocation = (req, res, next) => {
         location: {id: new Date().toISOString(), title: title, content: content }
     });
 };
+

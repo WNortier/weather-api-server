@@ -5,13 +5,13 @@ const db = require('./utility/database');
 
 const app = express();
 
-const locationRoutes = require('./API/locations')
+const locationRoutes = require('./api/locations')
 
 const adminRoutes = require('./routes/admin');
 const weatherRoutes = require('./routes/weather');
 
 
-db.execute('INSERT INTO locations (id, province, city) VALUES (2, North, Rustenburg)');
+//db.execute('INSERT INTO locations (id, province, city) VALUES (2, North, Rustenburg)');
 
 db.execute('SELECT * FROM locations')
 .then((result) => {
