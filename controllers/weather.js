@@ -10,8 +10,9 @@ exports.getLocationKey = async (req, res, next) => {
 
         const weather = new WeatherData(req.body.location);
         const theKey = await weather.retrieveKey();
-        console.log('controller', theKey)
-
+        console.log(theKey)
+        //const fiveDay = await weather.fiveDayForecast(theKey);
+        //const currentConditions = await weather.currentConditions(theKey);
 
     res.status(201).json({
         message: 'Location Received',
