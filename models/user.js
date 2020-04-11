@@ -1,4 +1,4 @@
-const users = [];
+const db = require('../utility/database');
 
 module.exports = class User {
     constructor(user) {
@@ -8,11 +8,14 @@ module.exports = class User {
         this.confirmPassword = user.confirmPassword
     }
 
-    save() {
-        users.push(this);
+    async save() {
+        return await db.execute('INSERT INTO users (email, username, password, is_admin, register_date) VALUES (?, ?, ?, ?, ?)', 
+        [this.email, this.username, this.password, 0, new Date()]
+        );
+        //users.push(this);
     }
 
-    static fetchAll() {
-        return users;
+    static async fetchAll() {
+        return await db.execute('SELECT * FROM users');
     }
 }
