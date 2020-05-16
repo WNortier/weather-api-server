@@ -7,7 +7,7 @@ const axios = require('axios');
 const app = express();
 
 const usersRoutes = require('./api/users');
-const weatherRoutes = require('./api/weather');
+const weatherRoutes = require('./api/weather-api');
 
 const locationRoutes = require('./api/locations');
 const adminRoutes = require('./routes/admin');
@@ -46,5 +46,8 @@ app.use((req, res, next) => {
     res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
 });
 
-app.listen(3000);
+const port = 3000;
+
+app.listen(port);
+console.warn(`Server starting on port ${port}`)
 
